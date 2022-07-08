@@ -37,6 +37,12 @@ const handleTokenUris = async (): Promise<string[]> => {
   return tokenUris
 }
 
+let tokenUris: string[] = [
+  "ipfs://QmfKcsfPiYb7crjRdhfxvxrSUTFfxa9hVGk3aF6uRX9S4H",
+  "ipfs://QmQxU61Fth3xvuw4RPLqrJrPWLZNSCXscyEmdcYTS6XMJz",
+  "ipfs://QmVTec3TXgvfXTUfUov2UGLRoKs2hSSixXzDLkkwi9ctaP",
+]
+
 module.exports = async ({
   getNamedAccounts,
   deployments,
@@ -45,7 +51,6 @@ module.exports = async ({
   const { deployer } = await getNamedAccounts()
   let vrfCoordinatorV2Address
   let subscriptionId
-  let tokenUris: string[] = [] // we could hardcode the already uploaded tokenUris here
 
   // get the Ipfs hashes of our images
   if (process.env.UPLOAD_TO_PINATA) {
